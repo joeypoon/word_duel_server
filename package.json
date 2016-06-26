@@ -1,0 +1,24 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha --compilers js:babel-core/register  --require ./test/test_helper.js  --recursive",
+    "test:watch": "npm run test -- --watch"
+  },
+  "author": "Joey F. Poon",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "chai-immutable": "1.5.3",
+    "mocha": "2.4.5"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.4.8",
+    "immutable": "3.7.6",
+    "redux": "3.3.1"
+  }
+}
