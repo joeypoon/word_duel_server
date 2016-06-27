@@ -1,17 +1,16 @@
-const express = require('express')
-const socketIO = require('socket.io')
-const path = require('path')
+const app = require('express')();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 
 export function startServer (store) {
   const PORT = process.env.PORT || 3000
+  server.listen(PORT, function () {
+    console.log(`Listening on ${ PORT }`)
+  });
 
-  const server = express()
-    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
-  const io = socketIO(server)
-
-  io.on('connection', (socket) => {
+  io.on('connection', function (socket) {
     console.log('Client connected')
     socket.on('disconnect', () => console.log('Client disconnected'))
-  })
+  });
+
 }
